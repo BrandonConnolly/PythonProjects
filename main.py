@@ -1,43 +1,54 @@
-#Car Rent Project
+#ABC Payroll
 #Author Brandon Connolly
-#Due Date Sept 23 2022
+#Due Date Sept 23
 
-#Current Costs & Rate
-Hst_Rate = .15
-KM_Rate = .10
-DayRate = 35
+#Currant Rates & Taxes
+HrRate = 17.50
+ItemRate = 35
+Union = 15
+IncomeTax = .21
+CPP = .0495
+EI = .016
 
-#Car Rental Input Information
-CustName =  input("Enter Customers Name: ")
-CustPhone = input("Enter Customer Phone Number: ")
-Days_Rent = input("Enter Total Number of Day Vehicle was Rented: ")
-Days_Rent = float(Days_Rent)
-KM_Rent = input("Enter KM Total at Time of Rental: ")
-KM_Rent = float(KM_Rent)
-KM_Return = input("Enter KM Total at Return of Rental: ")
-KM_Return = float(KM_Return)
+#Input information
+EmployeeName = input("Enter Employee Name: ")
+HrsWorked = input("Enter Hours worked: ")
+HrsWorked = float(HrsWorked)
+ItemsProd = input("Enter Number of Products Produced: ")
+ItemsProd = float(ItemsProd)
+Bonus = input("Enter Total of Bonus Issued: ")
+Bonus = float(Bonus)
 
 #Calculations
-Day_Cost = DayRate * Days_Rent
 
-KM_Travel = KM_Return - KM_Rent
-
-KM_Cost = KM_Travel * KM_Rate
-
-TotalCost = Day_Cost + KM_Cost
+CommPay = ItemRate * ItemsProd
+HrPay = HrRate * HrsWorked
+Grosspay = HrPay + CommPay + Bonus
+IncomeDed = Grosspay * IncomeTax
+CPPDed = Grosspay * CPP
+EIDed = Grosspay * EI
+TotalDed = IncomeDed + CPPDed + EIDed + Union
+NetPay = Grosspay - TotalDed
 
 #Printed Information
-print(f"   Customer Name: {CustName:<8s}")
-print(f"   Customer Phone Number: {CustPhone:<12s}")
-KM_Travel = "{:,.2f}".format(KM_Travel)
-print(f"   Total KM Travelled: {KM_Travel:<6s}")
-KM_Cost = "${:,.2f}".format(KM_Cost)
-print(f"   Total Cost of KM Travelled: {KM_Cost:<6s}")
-Day_Cost = "${:,.2f}" .format(Day_Cost)
-print(f"   Total Day Rental Cost: {Day_Cost:<6s}")
-TotalCost = "${:,.2f}" .format(TotalCost)
-print(f"   Total Cost: {TotalCost:<8s}")
-
-
-
-
+print(f"   Employee Name: {EmployeeName:<8s}")
+ItemsProd = "{:,.2f}".format(ItemsProd)
+print(f"   Total Products Produced: {ItemsProd:<4s}")
+HrPay = "${:,.2f}".format(HrPay)
+print(f"   Total Hourly Pay: {HrPay:<9s}")
+CommPay = "${:,.2f}".format(CommPay)
+print(f"   Total Commission: {CommPay:<9s}")
+Grosspay = "${:,.2f}".format(Grosspay)
+print(f"   Gross Pay: {Grosspay:<9s}")
+IncomeDed = "${:,.2f}".format(IncomeDed)
+print(f"   Total Income Tax: {IncomeDed:<9s}")
+CPPDed = "${:,.2f}".format(CPPDed)
+print(f"   Total CPP Contribution: {CPPDed:<9s}")
+EIDed = "${:,.2f}".format(EIDed)
+print(f"   Total EI Contribution: {EIDed:<9s}")
+Union = "${:,.2f}".format(Union)
+print(f"   Union Dues: {Union:<3s}")
+TotalDed = "${:,.2f}".format(TotalDed)
+print(f"   Total Deductions: {TotalDed:<9s}")
+NetPay = "${:,.2f}".format(NetPay)
+print(f"   Total Net Pay: {NetPay:<10s}")
